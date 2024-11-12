@@ -49,7 +49,9 @@ const show = (props: AndroidPickerProps) => {
           onConfirm?.(time);
           break;
         }
-        case ActionType.DISMISSED:
+        case ActionType.DISMISSED: {
+          break;
+        }
         default: {
           onConfirm?.(new Date(value));
         }
