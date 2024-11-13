@@ -1,10 +1,4 @@
 <a name="readme-top"></a>
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -15,12 +9,7 @@
     A React Native date & time picker for Android, using Google's Material Design components. Built with Typescript 🚀
     <br /><br />
     This is a fork of <a href="https://github.com/thespacemanatee/react-native-material-datetime-picker">React Native Material Datetime Picker</a>.
-    <br /><br />
-    <a href="https://github.com/thespacemanatee/react-native-material-datetime-picker"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/thespacemanatee/react-native-material-datetime-picker/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/thespacemanatee/react-native-material-datetime-picker/issues">Request Feature</a>
   </p>
 </div>
 
@@ -39,7 +28,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -101,7 +89,7 @@ export const App = () => {
       mode: AndroidPickerMode.TIME,
       is24Hours: true,
       inputMode: AndroidTimeInputMode.CLOCK,
-      onChange: (time) => {
+      onConfirm: (time) => {
         setTime(time);
       },
     });
@@ -116,7 +104,7 @@ export const App = () => {
       maximumDate: addWeeks(today, 4),
       inputMode: AndroidDateInputMode.CALENDAR,
       type: AndroidDatePickerType.DEFAULT,
-      onChange: (date) => {
+      onConfirm: (date) => {
         setDate(date);
       },
     });
@@ -150,7 +138,7 @@ export const App = () => {
           value={currentDate}
           minimumDate={subWeeks(today, 3)}
           maximumDate={addWeeks(today, 4)}
-          onChange={(date) => {
+          onConfirm={(date) => {
             setCurrentDate(date);
             setIsVisible(false);
           }}
@@ -172,21 +160,21 @@ export const App = () => {
 | `titleText`          | `string`                   |                          | ❌       | The title to be shown on the top left                                                           |
 | `positiveButtonText` | `string`                   |                          | ❌       | The text used in the positive action button                                                     |
 | `negativeButtonText` | `string`                   |                          | ❌       | The text used in the negative action button                                                     |
-| `onChange`           | `(date: Date) => string`   |                          | ❌       | The callback invoked when a new date or time is selected                                        |
+| `onConfirm`          | `(date: Date) => string`   |                          | ❌       | The callback invoked when a new date or time is selected                                        |
 | `onError`            | `(error: unknown) => void` |                          | ❌       | The callback invoked when an error occured while selecting a new value                          |
 
 #### Date Picker Options
 
-| Name                | Type                                       | Default | Required | Description                                                                                                                                                             |
-| ------------------- | ------------------------------------------ | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `minimumDate`       | `Date`                                     |         | ❌       | The minimum date allowed to be selected                                                                                                                                 |
-| `maximumDate`       | `Date`                                     |         | ❌       | The maximum date allowed to be selected                                                                                                                                 |
-| `startDate`         | `Date`                                     |         | ❌       | The start date when using a date range picker                                                                                                                           |
-| `endDate`           | `Date`                                     |         | ❌       | The end date when using a date range picker                                                                                                                             |
-| `inputMode`         | `AndroidDateInputMode`                     |         | ❌       | The input mode to launch the date picker in                                                                                                                             |
-| `fullscreen`        | `boolean`                                  |         | ❌       | Whether to show the date picker in fullscreen mode                                                                                                                      |
-| `type`              | `AndroidDatePickerType`                    |         | ❌       | The type of date picker to launch. Can be either `AndroidDatePickerType.DEFAULT` for the regular date picker or `AndroidDatePickerType.RANGE` for the date range picker |
-| `onDateRangeChange` | `(startDate: Date, endDate: Date) => void` |         | ❌       | The callback invoked when a date range is selected                                                                                                                      |
+| Name                 | Type                                       | Default | Required | Description                                                                                                                                                             |
+| -------------------- | ------------------------------------------ | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `minimumDate`        | `Date`                                     |         | ❌       | The minimum date allowed to be selected                                                                                                                                 |
+| `maximumDate`        | `Date`                                     |         | ❌       | The maximum date allowed to be selected                                                                                                                                 |
+| `startDate`          | `Date`                                     |         | ❌       | The start date when using a date range picker                                                                                                                           |
+| `endDate`            | `Date`                                     |         | ❌       | The end date when using a date range picker                                                                                                                             |
+| `inputMode`          | `AndroidDateInputMode`                     |         | ❌       | The input mode to launch the date picker in                                                                                                                             |
+| `fullscreen`         | `boolean`                                  |         | ❌       | Whether to show the date picker in fullscreen mode                                                                                                                      |
+| `type`               | `AndroidDatePickerType`                    |         | ❌       | The type of date picker to launch. Can be either `AndroidDatePickerType.DEFAULT` for the regular date picker or `AndroidDatePickerType.RANGE` for the date range picker |
+| `onConfirmDateRange` | `(startDate: Date, endDate: Date) => void` |         | ❌       | The callback invoked when a date range is selected                                                                                                                      |
 
 #### Time Picker Options
 
@@ -194,17 +182,6 @@ export const App = () => {
 | ----------- | ---------------------- | ------- | -------- | -------------------------------------------- |
 | `is24Hours` | `boolean`              |         | ❌       | The time format to launch the time picker in |
 | `inputMode` | `AndroidTimeInputMode` |         | ❌       | The input mode to launch the time picker in  |
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## 🛣️ Roadmap
-
-- [ ] Polyfill for iOS and Web
-- [ ] Theme support
-
-See the [open issues](https://github.com/thespacemanatee/react-native-material-datetime-picker/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -244,16 +221,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/thespacemanatee/react-native-material-datetime-picker.svg?style=for-the-badge
-[contributors-url]: https://github.com/thespacemanatee/react-native-material-datetime-picker/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/thespacemanatee/react-native-material-datetime-picker.svg?style=for-the-badge
-[forks-url]: https://github.com/thespacemanatee/react-native-material-datetime-picker/network/members
-[stars-shield]: https://img.shields.io/github/stars/thespacemanatee/react-native-material-datetime-picker.svg?style=for-the-badge
-[stars-url]: https://github.com/thespacemanatee/react-native-material-datetime-picker/stargazers
-[issues-shield]: https://img.shields.io/github/issues/thespacemanatee/react-native-material-datetime-picker.svg?style=for-the-badge
-[issues-url]: https://github.com/thespacemanatee/react-native-material-datetime-picker/issues
-[license-shield]: https://img.shields.io/github/license/thespacemanatee/react-native-material-datetime-picker.svg?style=for-the-badge
-[license-url]: https://github.com/thespacemanatee/react-native-material-datetime-picker/blob/master/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/chee-kit
 [product-screenshot]: https://user-images.githubusercontent.com/6837599/193515051-50d3a60f-94e2-4219-b171-c5e62d143c1c.png
